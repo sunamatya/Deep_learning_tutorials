@@ -23,9 +23,9 @@ class DeepQNetwork(nn.Module):
         self.device= T.device('cuda:0' is T.cuda.is_available() else 'cpu')
 
     def forward(self, state):
-        x= F.relu(self.f1(state))
-        x= F.relu(self.f2(x))
-        y_predicted = self.f3(x) #no activation here
+        x= F.relu(self.fc1(state))
+        x= F.relu(self.fc2(x))
+        y_predicted = self.fc3(x) #no activation here
         return y_predicted
 
 class Agent():
